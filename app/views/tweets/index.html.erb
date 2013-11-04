@@ -1,6 +1,18 @@
 <h2>Fake Twitter</h2>
 
-<div>
+<div id="inputtweet">
+  <%= form_for @new_tweet do |f| %>
+    <% if @new_tweet.errors.any? %>
+      <p style="color:red;">The tweet needs to be a Minimum of 1 character, and a maximum of 140 characters.</p>
+    <% end %>
+    <div>
+      <%= f.text_field :tweet %>
+      <%= f.submit 'Tweet' %>
+    </div>
+  <% end %>
+</div>
+
+<div id="tweets">
   <% @tweets.each do |tweet|%>
     <h3><%= tweet.tweet %></h3>
     <h4>Created at: <%= tweet.created_at %></h4>
