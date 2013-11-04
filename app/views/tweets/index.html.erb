@@ -1,1 +1,9 @@
 <h2>Fake Twitter</h2>
+
+<div>
+  <% @tweets.each do |tweet|%>
+    <h3><%= tweet.tweet %></h3>
+    <h4>Created at: <%= tweet.created_at %></h4>
+    <hr />
+  <% end %>
+</div>
