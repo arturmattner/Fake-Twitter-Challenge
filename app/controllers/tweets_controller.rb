@@ -9,9 +9,10 @@ class TweetsController < ApplicationController
     @new_tweet = Tweet.new(params[:tweet])
 
     if @new_tweet.save
-      redirect_to :action => "index"
+      redirect_to :action => :index
     else
-      render :action => "index"
+      @tweets = Tweet.order('id DESC')
+      render :action => :index
     end
   end
 end
